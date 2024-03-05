@@ -7,7 +7,7 @@ export const Todo = ({task}) => {
   return (
     <div className='Todo'>
         {/* <p onClick={} className={`${task.completed ? 'completed' : ""}`}>Go to school</p> */}
-        <p>Go to school</p>
+        <p>{task.task}</p>
         <div>
             <FontAwesomeIcon icon={faPenToSquare} />
             <FontAwesomeIcon icon={faTrash} />
