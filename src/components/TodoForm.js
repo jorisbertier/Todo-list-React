@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 export const TodoForm = () => {
+
+    const [value, setValue] = useState('') // récupèrer valeur que écrit l'utilisateur
+
+    const [submit, setSubmit] = useState('') // récupérer valeur écrite par l'user lors du click
+
+    // const handleChange = (e)=>  {
+    //     setValue(e.target.value)
+    // }
+    const handleSubmit = e => {
+        e.preventDefault();
+        setSubmit(value)
+    }
+
   return (
-    <form className='TodoForm'>
-        <input type='text' clasName='todo-input' placeholder='Quel est la tâche du jour'></input>
-        <button type='submit' className='todo-btn'></button>
+    <form className='TodoForm' onSubmit={handleSubmit}>
+        <input type='text' className='todo-input' placeholder='What is the task today?' onChange={(e) => setValue(e.target.value)}></input>
+        <button type='submit' className='todo-btn'>Add task</button>
+        <div>{submit}</div>
     </form>
+    
   )
 }
